@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+
+        <template id="store_finder_template">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container">
+                        <label for="countries">Select A Country:    </label>
+                        <select name="countries" id="countries_select" t-att-onchange="onChangeCountry">
+                            <t t-foreach="countries" t-as="country">
+                                <option t-att-value="country.id">
+                                    <t t-esc="country.name"/>
+                                </option>
+                            </t>
+                        </select>
+                        <div id='mapid' style="margin-top:32px; height: 360px;"></div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <record id="store_finder_page" model="website.page">
+            <field name="name">Store Finder Page</field>
+            <field name="website_published">True</field>
+            <field name="url">/store_finder</field>
+            <field name="type">qweb</field>
+            <field name="key">website_map.store_finder_page</field>
+            <field name="arch" type="xml">
+                <t t-call="website_map.store_finder_template">
+                </t>
+            </field>
+        </record>
+
+        <record id="store_finder_page_link" model="website.menu">
+            <field name="name">Store Finder</field>
+            <field name="page_id" ref="store_finder_page"/>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">99</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name"></field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='geo_location']" position="inside">
+              <group>
+                <field name="show_on_map"/>
+              </group>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,9 @@
+<odoo>
+  <data>
+     <template id="assets" inherit_id="point_of_sale.assets">
+       <xpath expr="." position="inside">
+         <script type="text/javascript" src="/golden_vape_pos_auto_gen_invoice/static/src/js/Screens/PaymentScreen/PaymentScreen.js"></script>
+       </xpath>
+     </template>
+  </data>
+</odoo>
